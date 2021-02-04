@@ -70,3 +70,9 @@
 .Button button:focus {
     outline: none;
 }
+
+.Flash {
+    width: 100%;
+    background-color: #5CB85C;
+    text-align: center;
+}

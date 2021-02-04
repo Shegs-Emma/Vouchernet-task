@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../Layout/Layout';
 import classes from './Login.module.css';
+import FlashMessage from 'react-flash-message';
 import axios from 'axios';
 
 const Login = () => {
@@ -10,10 +11,13 @@ const Login = () => {
     });
 
     const [ loging, setLoging ] = useState(false);
+    const [ resMessage, setResMessage ] = useState('');
+    const [ isShowingFlash, setIsShowingFlash ] = useState(false);
 
     //Contact the Api
     useEffect(() => {
         setLoging(false);
+        setIsShowingFlash(false);
 
         const login = (email, password) => {
 
@@ -34,10 +38,10 @@ const Login = () => {
                 formData.append(key, user[key]);
             }
 
-            console.log(user);
             axios.post('/vadmin/api2/apiLine.php', formData)
                 .then(res => {
-                    console.log(res);
+                    setResMessage(res.data.description);
+                    setIsShowingFlash(true);
                 })
                 .catch(err => {
                     console.log(err)
@@ -62,15 +66,23 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(inputValue)
 
         setLoging(true);
     }
+
+    const message = (
+        <FlashMessage duration={5000}>
+            <strong>{resMessage}</strong>
+        </FlashMessage>
+    );
 
 
     return (
         <React.Fragment>
             <Layout>
+                <div className={classes.Flash}>
+                    {!isShowingFlash ? "" : message}
+                </div>
                 <div className={classes.Login}>
                     <div>
                         <span className={classes.Web}>WEB VENDOR</span>
