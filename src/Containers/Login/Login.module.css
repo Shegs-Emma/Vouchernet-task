@@ -1,0 +1,72 @@
+.Login {
+    background-color: white;
+    width: 30%;
+    position: relative;
+    left: 30%;
+    top: 100px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.Login hr {
+    margin-bottom: 40px;
+}
+
+.Login input {
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid #E1E1E1;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    background-color: #FCFCFC;
+    padding-left: 20px;
+}
+
+.Login input:focus {
+    outline: none;
+    border: 1px solid #05b0ee;
+    box-shadow: 0 4px 8px 0 rgba(2, 202, 247, 0.2), 0 6px 20px 0 rgba(2, 202, 247, 0.19);
+}
+
+.Login label {
+    font-weight: 700;
+}
+
+.Web:hover, .Web:active {
+    color: rgb(3, 71, 241);
+}
+
+
+.Email {
+    display: flex;
+    flex-direction: column;
+}
+
+.Password {
+    display: flex;
+    flex-direction: column;
+}
+
+.Button {
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+    justify-content: space-between;
+}
+
+.Button button {
+    width: 40%;
+    height: 40px;
+    border-radius: 50px;
+    background-color: #5CB85C;
+    color: white;
+    border: 1px solid #5CB85C;
+}
+
+.Button div {
+    margin-top: 10px;
+}
+
+.Button button:focus {
+    outline: none;
+}
